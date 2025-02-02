@@ -1,0 +1,661 @@
+       
+       /*clrs: #232421 #313330 #dbff00 #4c5a79 #0d7af6*/
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f3f3f3;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        
+        #roletna-komarnik{
+            display: block;
+        }
+        
+    
+        #unos {
+            
+            display: grid;
+            grid-template-areas: 
+                "druga-kolona druga-kolona druga-kolona"
+                "wrapp prva-kolona output";
+            grid-template-columns:minmax(50px, 80px) 1fr 3fr; /* Leva kolona, output, desna kolona */
+            grid-template-rows: auto 1fr; /* Prvi red za drugu kolonu, drugi red za output */
+            width: 100%;
+            height: 100vh;
+           
+            
+            background-color: #f0f3fd;
+        }
+        #wrapp{
+           
+            grid-area: wrapp;
+            background-color: transparent;
+            
+           
+        }
+       
+        #row1,#row2,#row3,#row4,#row5,#row6{
+            
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            flex-direction: column;
+            align-items: center;
+            background-color: transparent;
+            
+            }
+
+            #row1:hover, #row2:hover, #row3:hover, 
+            #row4:hover, #row5:hover, #row6:hover {
+                cursor: pointer;
+            }
+            
+            #icon-pic{
+                text-align: center;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+            #icon-pic img{
+                width: 80%;
+                height: 80%;
+                object-fit: cover;
+
+            }
+ 
+            .icon-text{
+                font-size: 10px; 
+                color:#515559;  
+            }
+
+      
+
+        #idListDisplay{
+            font-size: 10px;
+        }
+       
+      
+      
+    
+        #output {
+            border-radius: 20px;
+            position: relative; /* Koristimo 'relative' umesto 'absolute' za lepu poziciju u vrhu */
+            width: 98%;
+            height: 90%;
+            top: 0;
+            background-color: #fff;
+            box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+
+        #prva-kolona{
+            grid-area: prva-kolona;
+           position: relative;
+          background-color: #f0f3fd;
+           
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding-right: 20px;
+        }
+        
+        
+        #druga-kolona {
+            grid-area: druga-kolona;
+           
+            background-color: #f0f3fd;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           
+          }
+          #OdabirKrila{
+          margin-bottom: 10px;
+
+        }
+        #OdabirStakla{
+
+            width: 100%;
+        }
+          
+          
+          #window-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: -5px 8px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            position: relative;
+            padding: 10px;
+            justify-content: left;
+          }
+
+           .left-column{
+               display: flex;
+               flex-direction: row;
+               justify-content: space-between;
+                
+                flex: 1;
+                margin-bottom: 10px;
+          }
+
+           .right-column{
+                flex: 1;
+          }
+
+          #Btns-Open{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-self: center;
+          }
+
+         
+
+          #wingForm{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: -5px 8px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            position: relative;
+            padding: 10px;
+            justify-content: left;
+          }
+
+         .left-column2{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            flex: 1;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .right-column2{
+            width: 100%;
+            flex: 1;  
+            display: flex; 
+
+        }
+        #addDoubleWing {
+            width: 100%; /* Dugme zauzima celu širinu roditeljskog elementa */
+            height: 100%; /* Dugme zauzima celu visinu roditeljskog elementa */
+
+        }
+        
+        #Btns-Fix{
+            position: relative;
+            display: none;
+            padding: 15px;
+            width: 100%;
+             
+        }
+        
+        #fiks{
+            padding: 10px;
+            width: 100%;
+        }
+
+
+        input[type="number"] {
+            width: 100%;
+        }
+        
+
+       /* OBRATI PAZNJUUU !!!!!!!!!!!!!!!*/ 
+        select {
+            width: 100%;
+        }
+
+        #StakloOdabir{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%; 
+        }
+        #StakloOdabir select{
+         margin-left: 8px;
+           
+        }
+  
+        .active-row #icon-pic {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: -5px 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+
+        
+        #treca-kolona{
+           position: fixed;
+           right: 0;
+           top: 20%;
+           max-width: 150px;
+        
+            background-color: transparent;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+  
+        #Tprecka{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: -5px 8px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            position: relative;
+            padding: 10px;
+            justify-content: left;
+            
+        }
+        .left-column3{
+            display: flex;
+            
+            width: 100%;
+            flex-direction: column;
+            flex: 1;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .right-column3{
+            width: 100%;
+            flex: 1;  
+            display: flex;  
+        }
+
+        #preckaKrilo{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: -5px 8px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            position: relative;
+            padding: 10px;
+            justify-content: left;
+            
+        }
+        #wingBar{
+            display: flex;
+            width: 100%;
+        }
+        .left-column4{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            flex: 1;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .right-column4{
+            width: 100%;
+            flex: 1;  
+            display: flex; ;  
+        }
+        .addWingBar{
+            width: 100%;
+        }
+
+
+        .generated-window {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            cursor: move;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+
+        }
+        .generated-window.selected {
+            background-color: rgb(184, 130, 155);
+        }
+
+        .inner-wing {
+            position: absolute;
+            background-color: transparent;
+            /*border: 1px solid #333;*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 14px;
+            box-sizing: border-box;
+          
+            
+        }
+
+        .TBar{
+            position: absolute;
+            display: flex;
+            background-color: white;
+            box-sizing: border-box;
+            color: black;
+            border: 0.5px solid #333;
+            overflow: hidden;
+            z-index: 8;
+           
+
+        }
+
+
+        .TBar2{
+            position: absolute;
+            display: flex;
+            background-color: white;
+            box-sizing: border-box;
+            color: black;
+            border: 0.5px solid #333;
+            overflow: hidden;
+            z-index: 7;
+        }
+
+        .dimensions {
+            position: absolute;
+            font-size: 12px;
+            color: black;
+            text-align: center;
+        }
+        .width-dimension {
+            bottom: -20px;
+        }
+        .height-dimension {
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .wing-width-dimension {
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .wing-height-dimension {
+            
+            left: 0%;
+            top: 50%;
+            transform: translateY(-50%);  
+        }
+
+        .selected {
+            background-color: blue;
+            color: white;
+        }
+
+        .line {
+            position: absolute;
+            background-color: black;
+            height: 1px;
+            z-index: 10;
+        }
+   
+
+        .window_inner_line{
+            position: relative;
+            background-color: transparent;
+            border: 1px solid #333333;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+            width: 100%;
+            height: calc(100% - 11px);
+            margin-top: 5.5px;
+            margin-bottom: 5.5px;
+            margin-left: 5.5px;
+            margin-right: 5.5px;
+        }
+        .wing_inner_line{
+            position: relative;
+            background-color: transparent;
+            border: 1px solid #333333;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+
+            
+            margin-right: 5.5px;
+            margin-left: 5.5px;
+            width: 100%;
+            height: calc(100% - 11px);
+            
+        }
+      
+        .target {
+            border: 1px solid #007bff;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f0f8ff;
+          }
+      
+          .wrapper {
+            position: absolute;
+            border: 2px dashed red;
+            background-color: rgba(255, 0, 0, 0.1);
+           
+          }
+
+        
+        
+          h3, label, span {
+            font-size: 14px;
+        }
+    
+
+        .wing-inner-line img {
+            position: absolute; /* Postavljamo sliku kao apsolutno pozicioniranu unutar newBox-a */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            object-fit: contain; /* Ovaj stil pomaže da slika stane unutar div-a, bez da ga iskrivi */
+          }
+
+          .no-select {
+            user-select: none; /* Sprečava selektovanje teksta */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+        }
+        
+        /* Omogućava unos teksta u input i textarea */
+        input, textarea {
+            user-select: text !important;
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+        }
+        
+        #showTrecaKolona {
+
+            position: fixed;
+            top: 50%;  
+            right: 0;
+            transform: translateY(-50%); /* Precizno centrira dugme vertikalno */
+            height: 50px;
+            width: 100px;
+            transform: rotate(-90deg);
+            border-radius: 10px;
+            background-color: #51d0de;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+           
+            
+        }
+        /* Prilagođeni Modal */
+.custom-modal {
+    display: none; /* Početno sakriven */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Poluprovidna pozadina */
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sadržaj modala */
+.modal-content {
+    background-color: #f44336; /* Crvena boja */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    max-width: 400px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Zatvaranje modala */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ddd;
+}
+@media (max-width: 768px) {
+    /* Prilagodba grid kontejnera sa novim rasporedom:
+       "druga-kolona"
+       "output"
+       "treca-kolona"
+       "prva-kolona"
+       "wrapp" */
+    
+    .submit{
+        padding: 5px;
+        font-size: 12px;
+    }
+    .form-container .form-group{
+        width: 70%;
+        gap: 15px;
+    }
+    #unos {
+      grid-template-areas:
+        "druga-kolona"
+        "output"
+        "prva-kolona"
+        "wrapp";
+      grid-template-columns: 1fr;
+      grid-template-rows: 7vh 53vh 25vh 15vh;
+      height: auto; /* Visina se prilagođava sadržaju */
+    }
+    
+    /* Osigurava vidljivost #output elementa */
+    #output {
+      width: 100%;
+      height: auto;  /* Visina prema sadržaju */
+      margin: 10px 0;
+      top: 0;
+    }
+    
+    /* Unutar #wrapp svi elementi će biti raspoređeni u jednom redu */
+    #wrapp {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 10%;
+      padding-right: 10%;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+    
+    /* Opcionalna prilagodba paddinga za ostale grid elemente */
+    #prva-kolona,
+    #druga-kolona {
+      padding: 10px;
+      align-items: center;
+    }
+    #treca-kolona{
+     
+        right: 0;
+        top: 7vh;
+        max-width: 150px;       
+        padding: 15px;
+        gap: 10px;
+
+     }
+     #showTrecaKolona {
+
+        position: fixed;
+        top: 35vh;  
+        right: 0;
+        height: 30px;
+        width: 70px;
+        font-size: 10px;
+      
+    }
+
+    #icon-pic{
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    #row1,#row2,#row3,#row4,#row5,#row6{
+            
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        
+        }
+    #wingForm, #window-container, #Tprecka, #preckaKrilo , #Btns-Fix{
+                
+                width: 60%;
+                padding: 7px;
+                justify-content: center;
+    }
+
+}
+
+  
+  @media (max-width: 573px) {
+
+    .submit{
+        padding: 5px;
+        font-size: 12px;
+    }
+    .form-container .form-group{
+        width: 70%;
+        gap: 15px;
+    }
+  }
+
+  

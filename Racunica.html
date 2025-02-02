@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racunica</title>
+</head>
+<body>
+    <div>
+        <h3>Lista ID-ova:</h3>
+        <ul id="idListDisplay">
+            <!-- Ovdje će biti prikazana lista ID-ova -->
+        </ul>
+    </div>
+
+    <script>
+        // Funkcija za prikaz liste sa ID-ovima sa strane
+        function updateIdListDisplay() {
+            const idListContainer = document.getElementById('idListDisplay');
+            idListContainer.innerHTML = ''; // Brišemo prethodni sadržaj liste
+
+            // Učitavamo listu iz localStorage
+            const idList = JSON.parse(localStorage.getItem('idList')) || [];
+
+            // Kreiramo novu listu
+            idList.forEach(id => {
+                const listItem = document.createElement('li');
+                listItem.textContent = id;
+                idListContainer.appendChild(listItem);
+            });
+        }
+
+        // Prikazivanje liste kada se učita stranica
+        window.onload = updateIdListDisplay;
+    </script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+
+.copyBtn {
+    --hov: 0;
+    display: grid; /* Potrebno za grid-template-columns */
+    grid-gap: 0.5em;
+    grid-template-columns: calc(0.375em + var(--hov) * 1em) 1fr;
+    align-items: center;
+    place-self: center;
+    border: none;
+    
+  
+    background: color-mix(in hsl, #b5fe83 calc(var(--hov) * 100%), #fefefe);
+    color: #0e0a0e;
+    font: 700 2em/1.375 ubuntu, sans-serif;
+    transition: 0.3s ease-out; /* Direkno navedena vrednost */
+    transition-delay: calc((1 - var(--hov)) * 0.5 * 0.3s), 0s;
+    transition-property: grid-template-columns, background;
+    cursor: pointer;
+
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.copyBtn::before {
+    aspect-ratio: 1;
+    display: block;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #0e0a0e;
+    color: hsla(0, 0%, 100%, var(--hov));
+    font-weight: 100;
+    text-indent: calc((var(--hov) - 1) * 1em);
+    clip-path: circle(closest-side);
+    transition: inherit;
+    transition-delay: calc(var(--hov) * 0.5 * 0.3s);
+    transition-property: color, text-indent;
+    content: attr(data-ico);
+}
+
+.copyBtn:is(:hover, :focus) {
+    --hov: 1;
+}
+
+
+
+   
+          .toggle-container {
+            display: flex;
+           flex-direction: row;
+            align-items: left;
+           
+            gap: 10px; /* Razmak između dugmeta i teksta */
+        }
+        
+        .toggle-label {
+            font-size: 14px;
+            color: #333; /* Možete promeniti boju teksta */
+            
+        }
+        
+        .open-left .checkbox {
+            display: none;
+        }
+        
+        .open-left .checkbox,
+        .open-left .checkbox:after,
+        .open-left .checkbox:before,
+        .open-left .checkbox *,
+        .open-left .checkbox *:after,
+        .open-left .checkbox *:before,
+        .open-left .checkbox + .checkbox-btn {
+            box-sizing: border-box;
+        }
+        
+        .open-left .checkbox + .checkbox-btn {
+            outline: 0;
+            display: block;
+            width: 2.5em; /* Smanjena širina dugmeta */
+            height: 1.25em; /* Smanjena visina dugmeta */
+            position: relative;
+            cursor: pointer;
+            -webkit-user-select: none;
+               -moz-user-select: none;
+                -ms-user-select: none;
+                    user-select: none;
+        }
+        
+        .open-left .checkbox + .checkbox-btn:after,
+        .open-left .checkbox + .checkbox-btn:before {
+            position: relative;
+            display: block;
+            content: "";
+            width: 50%;
+            height: 100%;
+        }
+        
+        .open-left .checkbox + .checkbox-btn:after {
+            left: 0;
+        }
+        
+        .open-left .checkbox + .checkbox-btn:before {
+            display: none;
+        }
+        
+        .open-left .checkbox:checked + .checkbox-btn:after {
+            left: 50%;
+        }
+        
+        .open-left .checkbox-ios + .checkbox-btn {
+            background: #fbfbfb;
+            border-radius: 2em;
+            padding: 2px;
+            transition: all 0.4s ease;
+            border: 1px solid #e8eae9;
+        }
+        
+        .open-left .checkbox-ios + .checkbox-btn:after {
+            border-radius: 2em;
+            background: #fbfbfb;
+            transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+        }
+        
+        .open-left .checkbox-ios + .checkbox-btn:hover:after {
+            will-change: padding;
+        }
+        
+        .open-left .checkbox-ios + .checkbox-btn:active {
+            box-shadow: inset 0 0 0 2em #e8eae9;
+        }
+        
+        .open-left .checkbox-ios + .checkbox-btn:active:after {
+            padding-right: 0.8em;
+        }
+        
+        .open-left .checkbox-ios:checked + .checkbox-btn {
+            background: #86d993;
+        }
+        
+        .open-left .checkbox-ios:checked + .checkbox-btn:active {
+            box-shadow: none;
+        }
+        
+        .open-left .checkbox-ios:checked + .checkbox-btn:active:after {
+            margin-left: -0.8em;
+        }
+
+        .open-right .checkbox {
+            display: none;
+        }
+
+        .open-right .checkbox,
+        .open-right .checkbox:after,
+        .open-right .checkbox:before,
+        .open-right .checkbox *,
+        .open-right .checkbox *:after,
+        .open-right .checkbox *:before,
+        .open-right .checkbox + .checkbox-btn {
+            box-sizing: border-box;
+        }
+        
+        .open-right .checkbox + .checkbox-btn {
+            outline: 0;
+            display: block;
+            width: 2.5em; /* Smanjena širina dugmeta */
+            height: 1.25em; /* Smanjena visina dugmeta */
+            position: relative;
+            cursor: pointer;
+            -webkit-user-select: none;
+               -moz-user-select: none;
+                -ms-user-select: none;
+                    user-select: none;
+        }
+        
+        .open-right .checkbox + .checkbox-btn:after,
+        .open-right .checkbox + .checkbox-btn:before {
+            position: relative;
+            display: block;
+            content: "";
+            width: 50%;
+            height: 100%;
+        }
+        
+        .open-right .checkbox + .checkbox-btn:after {
+            left: 0;
+        }
+        
+        .open-right .checkbox + .checkbox-btn:before {
+            display: none;
+        }
+        
+        .open-right .checkbox:checked + .checkbox-btn:after {
+            left: 50%;
+        }
+        
+        .open-right .checkbox-ios + .checkbox-btn {
+            background: #fbfbfb;
+            border-radius: 2em;
+            padding: 2px;
+            transition: all 0.4s ease;
+            border: 1px solid #e8eae9;
+        }
+        
+        .open-right .checkbox-ios + .checkbox-btn:after {
+            border-radius: 2em;
+            background: #fbfbfb;
+            transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+        }
+        
+        .open-right .checkbox-ios + .checkbox-btn:hover:after {
+            will-change: padding;
+        }
+        
+        .open-right .checkbox-ios + .checkbox-btn:active {
+            box-shadow: inset 0 0 0 2em #e8eae9;
+        }
+        
+        .open-right .checkbox-ios + .checkbox-btn:active:after {
+            padding-right: 0.8em;
+        }
+        
+        .open-right .checkbox-ios:checked + .checkbox-btn {
+            background: #86d993;
+        }
+        
+        .open-right .checkbox-ios:checked + .checkbox-btn:active {
+            box-shadow: none;
+        }
+        
+        .open-right .checkbox-ios:checked + .checkbox-btn:active:after {
+            margin-left: -0.8em;
+        }
+
+        
+        .kipovanje .checkbox {
+            display: none;
+        }
+
+        .kipovanje .checkbox,
+        .kipovanje .checkbox:after,
+        .kipovanje.checkbox:before,
+        .kipovanje .checkbox *,
+        .kipovanje .checkbox *:after,
+        .kipovanje .checkbox *:before,
+        .kipovanje .checkbox + .checkbox-btn {
+            box-sizing: border-box;
+        }
+        
+        .kipovanje .checkbox + .checkbox-btn {
+            outline: 0;
+            display: block;
+            width: 2.5em; /* Smanjena širina dugmeta */
+            height: 1.25em; /* Smanjena visina dugmeta */
+            position: relative;
+            cursor: pointer;
+            -webkit-user-select: none;
+               -moz-user-select: none;
+                -ms-user-select: none;
+                    user-select: none;
+        }
+        
+        .kipovanje .checkbox + .checkbox-btn:after,
+        .kipovanje .checkbox + .checkbox-btn:before {
+            position: relative;
+            display: block;
+            content: "";
+            width: 50%;
+            height: 100%;
+        }
+        
+        .kipovanje .checkbox + .checkbox-btn:after {
+            left: 0;
+        }
+        
+        .kipovanje .checkbox + .checkbox-btn:before {
+            display: none;
+        }
+        
+        .kipovanje .checkbox:checked + .checkbox-btn:after {
+            left: 50%;
+        }
+        
+        .kipovanje .checkbox-ios + .checkbox-btn {
+            background: #fbfbfb;
+            border-radius: 2em;
+            padding: 2px;
+            transition: all 0.4s ease;
+            border: 1px solid #e8eae9;
+        }
+        
+        .kipovanje .checkbox-ios + .checkbox-btn:after {
+            border-radius: 2em;
+            background: #fbfbfb;
+            transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+        }
+        
+        .kipovanje .checkbox-ios + .checkbox-btn:hover:after {
+            will-change: padding;
+        }
+        
+        .kipovanje .checkbox-ios + .checkbox-btn:active {
+            box-shadow: inset 0 0 0 2em #e8eae9;
+        }
+        
+        .kipovanje .checkbox-ios + .checkbox-btn:active:after {
+            padding-right: 0.8em;
+        }
+        
+        .kipovanje .checkbox-ios:checked + .checkbox-btn {
+            background: #86d993;
+        }
+        
+        .kipovanje .checkbox-ios:checked + .checkbox-btn:active {
+            box-shadow: none;
+        }
+        
+        .kipovanje .checkbox-ios:checked + .checkbox-btn:active:after {
+            margin-left: -0.8em;
+        }
+
+        .submit {
+            padding: 10px;
+            margin-left: 20px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #51d0de;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+        }
+    
+        .submit:before {
+            content: '';
+            background: linear-gradient(45deg, #0f8895, #32a4b0, #3b99a3, #51d0de, #447677);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+    
+        .submit:active {
+            color: #969696;
+        }
+    
+        .submit:active:after {
+            background: transparent;
+        }
+    
+        .submit:hover:before {
+            opacity: 1;
+        }
+    
+        .submit:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #51d0de;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+        
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+
+        .addTBar, .openWindow, .addDoubleWing, .addWingBar {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #51d0de;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        
+        .addTBar:before, 
+        .openWindow:before, 
+        .addDoubleWing:before,
+        .addWingBar:before {
+            content: '';
+            background: linear-gradient(45deg, #0f8895, #32a4b0, #3b99a3, #51d0de, #447677);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        .addTBar:active, 
+        .openWindow:active, 
+        .addDoubleWing:active,
+        .addWingBar:active {
+            color: #969696;
+        }
+        
+        .addTBar:active:after, 
+        .openWindow:active:after, 
+        .addDoubleWing:active:after,
+        .addWingBar:active:after {
+            background: transparent;
+        }
+        
+        .addTBar:hover:before, 
+        .openWindow:hover:before, 
+        .addDoubleWing:hover:before,
+        .addWingBar:hover:before {
+            opacity: 1;
+        }
+        
+        .addTBar:after, 
+        .openWindow:after, 
+        .addDoubleWing:after,
+        .addWingBar:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #51d0de;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+        
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+           
+
+      
+
+
+
+
+ .form-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.heightDiv{
+    margin-left: 20px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.form-group label {
+    font-size: 12px;
+    display: flex;            /* Enable flex on the label */
+    align-items: center;      /* Vertically center the text */
+    justify-content: left;  /* Horizontally center the text */
+    max-width: 60%;
+    text-align: left;
+
+    
+}
+
+.form-group input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+       
+
+/* Kontejner za dropdown */
+
+        .custom-select {
+            position: relative;
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            width: 95%
+        }
+
+        /* Stilizacija "select" dugmeta */
+        .select-button {
+            width: 100%;
+            padding: 8px 4px 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Prilagođena strelica */
+        .select-button::after {
+            content: "◁"; /* Strelica nadole */
+            font-size: 12px;
+            color: #333;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Rotacija strelice kada je meni otvoren */
+        .custom-select.open .select-button::after {
+            content: "▼";  /* Strelica nadole kada je meni otvoren */
+             transform: rotate(0deg); /* Strelica se vraća u početni položaj */
+            
+        }
+
+        /* Lista opcija (početno sakrivena) */
+        .select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 10;
+        }
+
+        /* Prikaz liste kada je dropdown otvoren */
+        .custom-select.open .select-options {
+            display: block;
+        }
+
+        /* Stilizacija pojedinačnih opcija */
+        .select-options div {
+            padding: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .select-options div:hover {
+            background-color: #51d0de !important;
+            color: white !important;
+        }
+
+ 
+        @media (max-width: 768px) {   
+        .copyBtn{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 7px 15px;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        }
