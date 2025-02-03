@@ -601,4 +601,15 @@
             cursor: pointer;
             font-size: 14px;
         }
+
+        .select-button {
+            width: 100%;
+           padding: 2px 2px 2px 2px;
+            font-size: 10px;
         }
+        .form-group{
+
+        }
+        .form-group input {
+           
+    }

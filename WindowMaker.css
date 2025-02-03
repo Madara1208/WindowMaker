@@ -7,7 +7,7 @@
         height: 100%;
         width: 100%;
       }
-      
+
        body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -579,7 +579,7 @@
         "prva-kolona"
         "wrapp";
       grid-template-columns: 1fr;
-      grid-template-rows: 7vh 53vh 25vh 15vh;
+      grid-template-rows: auto 53vh auto auto;
       height: 100vh; /* Visina se prilagođava sadržaju */
     }
     
@@ -612,7 +612,7 @@
     #treca-kolona{
      
         right: 0;
-        top: 7vh;
+        
         max-width: 150px;       
         padding: 15px;
         gap: 10px;
@@ -621,7 +621,7 @@
      #showTrecaKolona {
 
         position: fixed;
-        top: 35vh;  
+        
         right: 0;
         height: 30px;
         width: 70px;
