@@ -1,5 +1,13 @@
        
        /*clrs: #232421 #313330 #dbff00 #4c5a79 #0d7af6*/
+
+       html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+      
        body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -8,7 +16,7 @@
             flex-direction: column;
             align-items: center;
             background-color: #f3f3f3;
-            height: calc(var(--vh, 1vh) * 100); /* Postavlja visinu tela na 100vh bez problema sa status bar-om */
+             height: calc(var(--vh, 1vh) * 100); /* Postavlja visinu tela na 100vh bez problema sa status bar-om */
             overflow: hidden;
         }
         
@@ -585,8 +593,6 @@
     
     /* Unutar #wrapp svi elementi će biti raspoređeni u jednom redu */
     #wrapp {
-        position: fixed;
-        bottom: 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
