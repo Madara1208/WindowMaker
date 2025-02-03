@@ -574,7 +574,7 @@
         gap: 15px;
     }
     #unos {
-        height: 75vh;
+        height: 100vh;
       grid-template-areas:
         "druga-kolona"
         "output"
@@ -588,7 +588,7 @@
     /* Osigurava vidljivost #output elementa */
     #output {
       width: 100%;
-
+      
       margin: 10px 0;
       top: 0;
     }

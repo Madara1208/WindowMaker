@@ -25,243 +25,245 @@
           
             <div id="unos" >
 
-                
-                <div id="druga-kolona">
-
-                    <form id="dimensionForm">
-                        <div class="form-container">
-                            <div class="form-group">
-                                <div class="widthDiv">
-                                    <input type="number" id="width" name="width" required min="50" placeholder="Unesite širinu">
-                                </div>
-                                <div class="heightDiv">
-                                    <input type="number" id="height" name="height" required min="50" placeholder="Unesite visinu">
-                                </div>
-                            </div>
-                            <div class="button-group">
-                                <button type="submit" class="submit">Kreiraj prozor</button>
-                                
-                            </div>
-                        </div>
-                    </form>
                     
-        
-                </div>
-                <div id="wrapp" class="wrapperIcon">
+                    <div id="druga-kolona">
 
-                    <div id="row1" onclick="change('Tprecka','row1')">
-                        <div id="icon-pic">
-                            <img src="Tbar.png" alt="Opis slike">
-                        </div>
-                        <div id="icon-txt">
-                            <label class="icon-text">T precka</label>
-                        </div>
-                    </div>
-                    <div id="row3"  onclick="change('window-container','row3')">
-                        <div id="icon-pic">
-                            <img src="Onewing2.png" alt="Opis slike">
-                        </div>
-                        <div id="icon-txt">
-                            <label class="icon-text">Jedno krilo</label>
-                        </div>
-                    </div>
-                    <div id="row4" onclick="change('wingForm','row4')">
-                        <div id="icon-pic">
-                            <img src="Doublewing.png" alt="Opis slike">
-                        </div>
-                        <div id="icon-txt">
-                            <label class="icon-text">Duplo krilo</label>
-                        </div>
-                    </div>
-                    <div id="row6" onclick="change('preckaKrilo','row6')">
-                        <div id="icon-pic">
-                            <img src="PreckaKrilo.png" alt="Opis slike">
-                        </div>
-                        <div id="icon-txt">
-                            <label class="icon-text">Krilo precka</label>
-                        </div>
-                    </div>
-                   
-                  
-                    <div id="row5" onclick="change('Btns-Fix','row5')">
-                        <div id="icon-pic">
-                            <img src="Fiks.png" alt="Opis slike">
-                        </div>
-                        <div id="icon-txt">
-                            <label class="icon-text">Fiks</label>
-                        </div>
-                    </div>
-    
-                </div>
-                
-
-                <div id="prva-kolona">
-                   
-                    
-                    <div id="Tprecka">
-                                <form id="tBarForm" >
-                                        <div class="left-column3">
-                                                                                <!-- <div class="custom-select">
-                                                                                        <select id="tType" name="tType">
-                                                                                            <option value="vertical">Vertikalna</option>
-                                                                                            <option value="horizontal">Horizontalna</option>
-                                                                                        </select>
-                                                                                    </div> -->
-                                            <div class="custom-select" id="customSelect">
-                                                <div class="select-button" data-value="">Tip T precke</div>
-                                                <div class="select-options">
-                                                    <div data-value="vertical">Vertikalna</div>
-                                                    <div data-value="horizontal">Horizontalna</div>
-                                                </div>
-                                                <!-- Skriveno input polje za čuvanje izabrane vrednosti -->
-                                                <input type="hidden" name="tType" id="tType">
-                                            
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="tPosition">Pozicija T precke:</label>
-                                                <input type="number" id="tPosition" name="tPosition" required min="10" placeholder="Unesite poziciju">
-                                            </div>
-                                        </div>
-
-                                <div class="right-column3">
-                                    <button type="button" id="addTBar" class="addTBar form-button">Dodaj T prečku</button>
+                        <form id="dimensionForm">
+                            <div class="form-container">
+                                <div class="form-group">
+                                    <div class="widthDiv">
+                                        <input type="number" id="width" name="width" required min="50" placeholder="Unesite širinu">
+                                    </div>
+                                    <div class="heightDiv">
+                                        <input type="number" id="height" name="height" required min="50" placeholder="Unesite visinu">
+                                    </div>
                                 </div>
-
-                            </form>
-                    </div>
-                        
-
-                    <div id="window-container">
-                        
-                        <div id="OdabirKrila">
-                            <div class="custom-select" id="customSelectKrilo">
-                                <div class="select-button" data-value="">Izaberite krilo</div>
-                                <div class="select-options">
-                                    <div data-value="Prozor">Prozorsko</div>
-                                    <div data-value="Vrata">Vratno</div>
-                                </div>
-                                <!-- Skriveno input polje za čuvanje izabrane vrednosti -->
-                                <input type="hidden" name="KriloVrataIliProzor" id="KriloVrataIliProzor">
-                            </div>
-                        </div>
-
-                            <div class="left-column">
-                                <div class="toggle-container">
-                                    <span class="toggle-label">Levo:</span>
-                                    <label class="open-left">
-                                    <input type="checkbox" class="checkbox checkbox-ios" id="open-left" />
-                                    <span class="checkbox-btn"></span>
-                                    </label>
-                                </div>
-                            
-                                <div class="toggle-container">
-                                    <span class="toggle-label">Desno:</span>
-                                    <label class="open-right">
-                                    <input type="checkbox" class="checkbox checkbox-ios" id="open-right" name="direction" />
-                                    <span class="checkbox-btn"></span>
-                                    </label>
+                                <div class="button-group">
+                                    <button type="submit" class="submit">Kreiraj prozor</button>
                                     
                                 </div>
-                            
-                                <div class="toggle-container">
-                                        <span class="toggle-label">Kip:</span>
-                                        <label class="kipovanje">
-                                        <input type="checkbox" class="checkbox checkbox-ios" id="Kipovanje" name="direction" />
-                                        <span class="checkbox-btn"></span>
-                                        </label>
-
-                                </div>
-                                
                             </div>
-                                <div class="right-column">
-                                    <div id="Btns-Open">
-                                        <button type="button" id="openWindow" class="openWindow">Otvaranje</button>
-                                    </div>
-                                </div>
+                        </form>
+                        
+            
                     </div>
                 
-                    <form id="wingForm">
+                    
 
-                        <div id="OdabirKrila">
-                            <div class="custom-select" id="customSelectKrilo">
-                                <div class="select-button" data-value="">Izaberite krilo</div>
-                                <div class="select-options">
-                                    <div data-value="Prozor">Prozorsko</div>
-                                    <div data-value="Vrata">Vratno</div>
-                                </div>
-                                <!-- Skriveno input polje za čuvanje izabrane vrednosti -->
-                                <input type="hidden" name="KriloVrataIliProzor" id="KriloVrataIliProzor">
-                            </div>
-                        </div>
+                    <div id="prva-kolona">
+                    
                         
-                        <div class="left-column2">
-                            <div class="custom-select" id="customSelectWingDoubleType">
-                                <div class="select-button" data-value="">Glavno krilo</div>
-                                <div class="select-options">
-                                    <div data-value="Levo">Levo</div>
-                                    <div data-value="Desno">Desno</div>
-                                </div>
-                                <input type="hidden" name="wingDoubleTypeInput" id="wingDoubleType">
-                            </div>
-                        
-                            
-                                <div class="form-group">
-                                    <label for="wingDouble">Širina krila:</label>
-                                    <input type="number" id="wingDouble" name="wingDouble" required min="10" placeholder="Unesite širinu krila">
-                                </div>
-                        </div>
-                        <div class="right-column2">
-                            <button type="button" id="addDoubleWing" class="addDoubleWing">Primeni</button>
-                        </div>
-                    </form> 
-
-                        
-            
-                        <div id="preckaKrilo">
-                           
-                                <form id="wingBar">
-                                    <div class="left-column4">
-                                        <div class="custom-select" id="kriloPrecka">
-                                            <div class="select-button" data-value="">Tip prečke</div>
-                                                <div class="select-options">
-                                                    <div data-value="vertical">Vertikalna</div>
-                                                    <div data-value="horizontal">Horizontalna</div>
+                        <div id="Tprecka">
+                                    <form id="tBarForm" >
+                                            <div class="left-column3">
+                                                                                    <!-- <div class="custom-select">
+                                                                                            <select id="tType" name="tType">
+                                                                                                <option value="vertical">Vertikalna</option>
+                                                                                                <option value="horizontal">Horizontalna</option>
+                                                                                            </select>
+                                                                                        </div> -->
+                                                <div class="custom-select" id="customSelect">
+                                                    <div class="select-button" data-value="">Tip T precke</div>
+                                                    <div class="select-options">
+                                                        <div data-value="vertical">Vertikalna</div>
+                                                        <div data-value="horizontal">Horizontalna</div>
+                                                    </div>
+                                                    <!-- Skriveno input polje za čuvanje izabrane vrednosti -->
+                                                    <input type="hidden" name="tType" id="tType">
+                                                
                                                 </div>
-                                            <input type="hidden" name="WingBarTypeInput" id="WingBarType">
-                                        </div>
+                                                <div class="form-group">
+                                                    <label for="tPosition">Pozicija T precke:</label>
+                                                    <input type="number" id="tPosition" name="tPosition" required min="10" placeholder="Unesite poziciju">
+                                                </div>
+                                            </div>
 
-                                        <div class="form-group">
-                                            <label for="WingBarPosition">Pozicija Prečke krila:</label>
-                                            <input type="number" id="WingBarPosition" name="WingBarPosition" required min="10" placeholder="Unesite poziciju">
+                                    <div class="right-column3">
+                                        <button type="button" id="addTBar" class="addTBar form-button">Dodaj T prečku</button>
+                                    </div>
+
+                                </form>
+                        </div>
+                            
+
+                        <div id="window-container">
+                            
+                            <div id="OdabirKrila">
+                                <div class="custom-select" id="customSelectKrilo">
+                                    <div class="select-button" data-value="">Izaberite krilo</div>
+                                    <div class="select-options">
+                                        <div data-value="Prozor">Prozorsko</div>
+                                        <div data-value="Vrata">Vratno</div>
+                                    </div>
+                                    <!-- Skriveno input polje za čuvanje izabrane vrednosti -->
+                                    <input type="hidden" name="KriloVrataIliProzor" id="KriloVrataIliProzor">
+                                </div>
+                            </div>
+
+                                <div class="left-column">
+                                    <div class="toggle-container">
+                                        <span class="toggle-label">Levo:</span>
+                                        <label class="open-left">
+                                        <input type="checkbox" class="checkbox checkbox-ios" id="open-left" />
+                                        <span class="checkbox-btn"></span>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="toggle-container">
+                                        <span class="toggle-label">Desno:</span>
+                                        <label class="open-right">
+                                        <input type="checkbox" class="checkbox checkbox-ios" id="open-right" name="direction" />
+                                        <span class="checkbox-btn"></span>
+                                        </label>
+                                        
+                                    </div>
+                                
+                                    <div class="toggle-container">
+                                            <span class="toggle-label">Kip:</span>
+                                            <label class="kipovanje">
+                                            <input type="checkbox" class="checkbox checkbox-ios" id="Kipovanje" name="direction" />
+                                            <span class="checkbox-btn"></span>
+                                            </label>
+
+                                    </div>
+                                    
+                                </div>
+                                    <div class="right-column">
+                                        <div id="Btns-Open">
+                                            <button type="button" id="openWindow" class="openWindow">Otvaranje</button>
                                         </div>
                                     </div>
-                                </form>   
+                        </div>
+                    
+                        <form id="wingForm">
+
+                            <div id="OdabirKrila">
+                                <div class="custom-select" id="customSelectKrilo">
+                                    <div class="select-button" data-value="">Izaberite krilo</div>
+                                    <div class="select-options">
+                                        <div data-value="Prozor">Prozorsko</div>
+                                        <div data-value="Vrata">Vratno</div>
+                                    </div>
+                                    <!-- Skriveno input polje za čuvanje izabrane vrednosti -->
+                                    <input type="hidden" name="KriloVrataIliProzor" id="KriloVrataIliProzor">
+                                </div>
+                            </div>
+                            
+                            <div class="left-column2">
+                                <div class="custom-select" id="customSelectWingDoubleType">
+                                    <div class="select-button" data-value="">Glavno krilo</div>
+                                    <div class="select-options">
+                                        <div data-value="Levo">Levo</div>
+                                        <div data-value="Desno">Desno</div>
+                                    </div>
+                                    <input type="hidden" name="wingDoubleTypeInput" id="wingDoubleType">
+                                </div>
+                            
+                                
+                                    <div class="form-group">
+                                        <label for="wingDouble">Širina krila:</label>
+                                        <input type="number" id="wingDouble" name="wingDouble" required min="10" placeholder="Unesite širinu krila">
+                                    </div>
+                            </div>
+                            <div class="right-column2">
+                                <button type="button" id="addDoubleWing" class="addDoubleWing">Primeni</button>
+                            </div>
+                        </form> 
+
+                            
+                
+                            <div id="preckaKrilo">
+                            
+                                    <form id="wingBar">
+                                        <div class="left-column4">
+                                            <div class="custom-select" id="kriloPrecka">
+                                                <div class="select-button" data-value="">Tip prečke</div>
+                                                    <div class="select-options">
+                                                        <div data-value="vertical">Vertikalna</div>
+                                                        <div data-value="horizontal">Horizontalna</div>
+                                                    </div>
+                                                <input type="hidden" name="WingBarTypeInput" id="WingBarType">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="WingBarPosition">Pozicija Prečke krila:</label>
+                                                <input type="number" id="WingBarPosition" name="WingBarPosition" required min="10" placeholder="Unesite poziciju">
+                                            </div>
+                                        </div>
+                                    </form>   
+                                
+
+                                <div class="right-column4">
+                                    <button type="button" id="addWingBar" class="addWingBar">Dodaj prečku</button>
+                                </div>
+                            </div> 
+
                             
 
-                            <div class="right-column4">
-                                <button type="button" id="addWingBar" class="addWingBar">Dodaj prečku</button>
-                            </div>
-                        </div> 
+                            <div id="Btns-Fix">
+                                <button type="button" id="fiks">Fiks</button>
+                            </div>  
 
-                        
-
-                        <div id="Btns-Fix">
-                            <button type="button" id="fiks">Fiks</button>
-                        </div>  
-
-                    <button data-ico="￫" class="copyBtn" id="copyBtn">Dodaj u ponudu</button>
-            
-                </div>
-
-                <div id="output">
-
-                </div>
+                        <button data-ico="￫" class="copyBtn" id="copyBtn">Dodaj u ponudu</button>
                 
-            </div>
-            
-            <button id="showTrecaKolona">Dodatne opcije</button>
+                    </div>
+
+                    <div id="output">
+
+                    </div>
+
+                    <div id="wrapp" class="wrapperIcon">
+
+                        <div id="row1" onclick="change('Tprecka','row1')">
+                            <div id="icon-pic">
+                                <img src="Tbar.png" alt="Opis slike">
+                            </div>
+                            <div id="icon-txt">
+                                <label class="icon-text">T precka</label>
+                            </div>
+                        </div>
+                        <div id="row3"  onclick="change('window-container','row3')">
+                            <div id="icon-pic">
+                                <img src="Onewing2.png" alt="Opis slike">
+                            </div>
+                            <div id="icon-txt">
+                                <label class="icon-text">Jedno krilo</label>
+                            </div>
+                        </div>
+                        <div id="row4" onclick="change('wingForm','row4')">
+                            <div id="icon-pic">
+                                <img src="Doublewing.png" alt="Opis slike">
+                            </div>
+                            <div id="icon-txt">
+                                <label class="icon-text">Duplo krilo</label>
+                            </div>
+                        </div>
+                        <div id="row6" onclick="change('preckaKrilo','row6')">
+                            <div id="icon-pic">
+                                <img src="PreckaKrilo.png" alt="Opis slike">
+                            </div>
+                            <div id="icon-txt">
+                                <label class="icon-text">Krilo precka</label>
+                            </div>
+                        </div>
+                       
+                      
+                        <div id="row5" onclick="change('Btns-Fix','row5')">
+                            <div id="icon-pic">
+                                <img src="Fiks.png" alt="Opis slike">
+                            </div>
+                            <div id="icon-txt">
+                                <label class="icon-text">Fiks</label>
+                            </div>
+                        </div>
         
-            <div id="treca-kolona" style="display: none;">
+                    </div>
+                    
+            </div>
+                
+                <button id="showTrecaKolona">Dodatne opcije</button>
+            
+                <div id="treca-kolona" style="display: none;">
                         
                         <div id="roletna-komarnik">
                             <div class="custom-select" id="Roletna">
