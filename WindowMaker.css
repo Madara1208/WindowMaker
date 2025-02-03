@@ -585,6 +585,8 @@
     
     /* Unutar #wrapp svi elementi će biti raspoređeni u jednom redu */
     #wrapp {
+        position: fixed;
+        bottom: 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
