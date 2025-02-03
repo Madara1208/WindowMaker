@@ -6,11 +6,12 @@
         padding: 0;
         height: 100%;
         width: 100%;
+        background-color: #f3f3f3;
       }
 
        body {
             font-family: Arial, sans-serif;
-            margin: 0;
+            margin-bottom: 5vh;
             padding: 0;
             display: flex;
             flex-direction: column;
@@ -573,20 +574,21 @@
         gap: 15px;
     }
     #unos {
+        height: 75vh;
       grid-template-areas:
         "druga-kolona"
         "output"
         "prva-kolona"
         "wrapp";
       grid-template-columns: 1fr;
-      grid-template-rows: auto 100px auto auto;
+      grid-template-rows: auto 50vh auto auto;
        /* Visina se prilagođava sadržaju */
     }
     
     /* Osigurava vidljivost #output elementa */
     #output {
       width: 100%;
-      height: auto;  /* Visina prema sadržaju */
+
       margin: 10px 0;
       top: 0;
     }
