@@ -580,7 +580,7 @@
         "wrapp";
       grid-template-columns: 1fr;
       grid-template-rows: auto 53vh auto auto;
-      height: 100vh; /* Visina se prilagođava sadržaju */
+       /* Visina se prilagođava sadržaju */
     }
     
     /* Osigurava vidljivost #output elementa */
@@ -608,6 +608,9 @@
     #druga-kolona {
       padding: 10px;
       align-items: center;
+    }
+    #prva-kolona{
+        justify-content: center;
     }
     #treca-kolona{
      
@@ -647,9 +650,9 @@
         }
     #wingForm, #window-container, #Tprecka, #preckaKrilo , #Btns-Fix{
                 
-                width: 60%;
-                padding: 7px;
-                justify-content: center;
+            width: 60%;
+            padding: 7px;
+            justify-content: center;
     }
     input{
         font-size: 16px;
