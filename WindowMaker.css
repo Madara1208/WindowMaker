@@ -572,7 +572,7 @@
         "wrapp";
       grid-template-columns: 1fr;
       grid-template-rows: 7vh 53vh 25vh 15vh;
-      height: auto; /* Visina se prilagođava sadržaju */
+      height: 100vh; /* Visina se prilagođava sadržaju */
     }
     
     /* Osigurava vidljivost #output elementa */
@@ -642,6 +642,9 @@
                 width: 60%;
                 padding: 7px;
                 justify-content: center;
+    }
+    input{
+        font-size: 16px;
     }
 
 }
