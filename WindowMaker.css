@@ -644,7 +644,44 @@
                 justify-content: center;
     }
 
+    #customKeyboard {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #333;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+      }
+  
+      #customKeyboard button {
+        flex: 1 1 calc(10% - 5px); /* 10 kolona */
+        max-width: calc(10% - 5px);
+        height: 50px;
+        font-size: 20px;
+        text-align: center;
+        background: #555;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  
+      /* Dugmad za brisanje */
+      .control-btn {
+        background: red;
+      }
+
 }
+
+@media (min-width: 769px) {
+    #customKeyboard {
+      display: none !important;
+    }
+  }
 
   
   @media (max-width: 573px) {

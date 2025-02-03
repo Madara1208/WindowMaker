@@ -1123,6 +1123,34 @@ imageInput.addEventListener('change', (event) => {
 });
 */
 
+//SKRIVANJE TASTATURE I PRIKAZ MOJE NOVE
+
+    let activeInput = null;
+
+  // Funkcija za postavljanje aktivnog input polja
+  function setActiveInput(inputId) {
+    activeInput = document.getElementById(inputId);
+    activeInput.removeAttribute('readonly'); // Omogućava unos
+  }
+
+  function addNumber(num) {
+    if (activeInput) {
+      activeInput.value += num;
+    }
+  }
+
+  function clearInput() {
+    if (activeInput) {
+      activeInput.value = "";
+    }
+  }
+
+  function deleteLast() {
+    if (activeInput) {
+      activeInput.value = activeInput.value.slice(0, -1);
+    }
+}
+
 //ONEMOGUCAVANJE SELEKTOVANJE TEKSTOVA SLUCAJNO !!!!!!!!!!!!
 
 document.addEventListener("mousedown", function (event) {
