@@ -1,26 +1,21 @@
        
        /*clrs: #232421 #313330 #dbff00 #4c5a79 #0d7af6*/
 
-       html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        background-color: #f3f3f3;
-      }
 
        body {
             font-family: Arial, sans-serif;
-            margin-bottom: 5vh;
+            margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             background-color: #f3f3f3;
-             height: calc(var(--vh, 1vh) * 100); /* Postavlja visinu tela na 100vh bez problema sa status bar-om */
-            overflow: hidden;
+            height: calc(var(--vh, 1vh) * 100); /* Postavlja visinu tela na 100vh bez problema sa status bar-om */
+            overflow: auto;
         }
-        
+        html {
+            height: 100%; /* Postavlja visinu HTML elementa */
+        }
 
         
         #roletna-komarnik{
@@ -29,7 +24,7 @@
         
     
         #unos {
-            
+            height: calc(var(--vh, 1vh) * 100);
             display: grid;
             grid-template-areas: 
                 "druga-kolona druga-kolona druga-kolona"
@@ -37,7 +32,7 @@
             grid-template-columns:minmax(50px, 80px) 1fr 3fr; /* Leva kolona, output, desna kolona */
             grid-template-rows: auto 1fr; /* Prvi red za drugu kolonu, drugi red za output */
             width: 100%;
-            height: 100vh;
+           
            
             
             background-color: #f0f3fd;
@@ -571,17 +566,17 @@
     }
     .form-container .form-group{
         width: 70%;
-        gap: 15px;
+        gap: 5px;
     }
     #unos {
-        height: 100vh;
+       height:  calc(var(--vh, 1vh) * 100);
       grid-template-areas:
         "druga-kolona"
         "output"
         "prva-kolona"
         "wrapp";
       grid-template-columns: 1fr;
-      grid-template-rows: auto 50vh auto auto;
+      grid-template-rows: 50px 50vh auto auto;
        /* Visina se prilagođava sadržaju */
     }
     
