@@ -592,8 +592,8 @@
         @media (max-width: 768px) {   
         .copyBtn{
             position: fixed;
-            bottom: 50vh;
-            right: 20vh;
+            bottom: 0;
+            right: 0;
             padding: 7px 15px;
             color: rgb(0, 0, 0);
             border: none;
