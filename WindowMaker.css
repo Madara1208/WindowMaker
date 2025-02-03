@@ -11,21 +11,7 @@
             height: 100vh;
             overflow: hidden;
         }
-        #customKeyboard {
-            display: flex;
-            flex-wrap: wrap;
-            width: 150px;
-            gap: 5px;
-            margin-top: 10px;
-        }
         
-        #customKeyboard button {
-            width: 45px;
-            height: 45px;
-            font-size: 18px;
-            text-align: center;
-            cursor: pointer;
-        }
 
         
         #roletna-komarnik{
