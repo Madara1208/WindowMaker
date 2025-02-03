@@ -1,4 +1,14 @@
 
+function setFullHeight() {
+    const vh = window.innerHeight * 0.01;  // Uzima visinu viewport-a u px
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  
+  window.addEventListener('resize', setFullHeight);
+  window.addEventListener('load', setFullHeight);
+
+
+
 
         const output = document.getElementById('output');
         let selectedWindow = null;
