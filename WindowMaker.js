@@ -19,94 +19,105 @@ function setFullHeight() {
         // Kreiranje novog prozora
         document.getElementById('dimensionForm').addEventListener('submit', function(event) {
             event.preventDefault();
-
+        
             const width = parseInt(document.getElementById('width').value);
             const height = parseInt(document.getElementById('height').value);
-
+        
             if (width > 0 && height > 0) {
-
-
                 const windowDiv = document.createElement('div');
                 windowDiv.classList.add('generated-window');
                 windowDiv.style.width = width + 'px';
                 windowDiv.style.height = height + 'px';
-
+        
                 const newBox = document.createElement('div');
                 newBox.classList.add('window_inner_line');
-
+        
                 wingCounter++;
                 windowDiv.id = 'krilo' + wingCounter;
                 idList.push(windowDiv.id);
                 addRemoveListener(windowDiv);
+        
                 windowDiv.addEventListener('click', function () {
                     selectedDiv = windowDiv; // Postavi ovaj div kao selektovan
                 });
-
-              
-
+        
                 // Postavljanje početne pozicije
                 windowDiv.style.left = `${(output.clientWidth - width) / 2}px`;
                 windowDiv.style.top = `${(output.clientHeight - height) / 2}px`;
-
+        
                 // Dodavanje dimenzija
                 const widthText = document.createElement('div');
                 widthText.classList.add('dimensions', 'width-dimension');
                 widthText.textContent = `${width} cm`;
-
+        
                 const heightText = document.createElement('div');
                 heightText.classList.add('dimensions', 'height-dimension');
                 heightText.textContent = `${height} cm`;
-
+        
                 windowDiv.appendChild(widthText);
                 windowDiv.appendChild(heightText);
-                
-
+        
                 // Dodavanje mogućnosti za selekciju
                 windowDiv.addEventListener('click', function(e) {
                     e.stopPropagation();
                     deselectWindows();
                     windowDiv.classList.add('selected');
                     selectedWindow = windowDiv;
-                }); 
-              
-                
-
-                // Dodavanje mogućnosti za pomeranje
-                windowDiv.addEventListener('mousedown', function(e) {
-                    let offsetX = e.clientX - windowDiv.offsetLeft;
-                    let offsetY = e.clientY - windowDiv.offsetTop;
-
+                });
+        
+                // Funkcija za pomeranje elemenata (računar + telefon)
+                function startMove(e) {
+                    e.preventDefault(); // Sprečava nepoželjno skrolovanje na mobilnim uređajima
+        
+                    let clientX = e.clientX || e.touches[0].clientX;
+                    let clientY = e.clientY || e.touches[0].clientY;
+        
+                    let offsetX = clientX - windowDiv.offsetLeft;
+                    let offsetY = clientY - windowDiv.offsetTop;
+        
                     function moveAt(event) {
+                        let clientX = event.clientX || event.touches[0].clientX;
+                        let clientY = event.clientY || event.touches[0].clientY;
+        
                         const minX = 0;
                         const maxX = output.clientWidth - windowDiv.offsetWidth;
                         const minY = 0;
                         const maxY = output.clientHeight - windowDiv.offsetHeight;
-
-                        let newX = event.clientX - offsetX;
-                        let newY = event.clientY - offsetY;
-
+        
+                        let newX = clientX - offsetX;
+                        let newY = clientY - offsetY;
+        
                         if (newX < minX) newX = minX;
                         if (newX > maxX) newX = maxX;
                         if (newY < minY) newY = minY;
                         if (newY > maxY) newY = maxY;
-
+        
                         windowDiv.style.left = `${newX}px`;
                         windowDiv.style.top = `${newY}px`;
                     }
-
+        
                     function stopMove() {
                         document.removeEventListener('mousemove', moveAt);
                         document.removeEventListener('mouseup', stopMove);
+                        document.removeEventListener('touchmove', moveAt);
+                        document.removeEventListener('touchend', stopMove);
                     }
-
+        
                     document.addEventListener('mousemove', moveAt);
                     document.addEventListener('mouseup', stopMove);
-                });
-
+                    document.addEventListener('touchmove', moveAt, { passive: false });
+                    document.addEventListener('touchend', stopMove);
+                }
+        
+                // Dodaj event listenere za pomeranje na računarima i telefonima
+                windowDiv.addEventListener('mousedown', startMove);
+                windowDiv.addEventListener('touchstart', startMove, { passive: false });
+        
                 output.appendChild(windowDiv);
                 windowDiv.appendChild(newBox);
             }
         });
+        
 
 
         // Deselektovanje svih prozora

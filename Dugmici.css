@@ -594,19 +594,15 @@
             position: fixed;
             bottom: 0;
             right: 0;
-            padding: 7px 15px;
+            padding: 5px 10px;
             color: rgb(0, 0, 0);
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
         }
 
-        .select-button {
-            width: 100%;
-           padding: 2px 2px 2px 2px;
-            font-size: 10px;
-        }
+     
         
            
     }

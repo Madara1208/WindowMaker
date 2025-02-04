@@ -560,6 +560,8 @@
        "prva-kolona"
        "wrapp" */
     
+ 
+
     .submit{
         padding: 5px;
         font-size: 12px;
@@ -576,14 +578,16 @@
         "prva-kolona"
         "wrapp";
       grid-template-columns: 1fr;
-      grid-template-rows: 50px 50vh auto auto;
+      grid-template-rows: 10vh 50vh 20vh 20vh;
        /* Visina se prilagođava sadržaju */
     }
     
     /* Osigurava vidljivost #output elementa */
     #output {
       width: 100%;
-      
+        zoom: 0.7; /* Smanjuje unutrašnji sadržaj na 50% */
+    
+
       margin: 10px 0;
       top: 0;
     }
@@ -621,7 +625,7 @@
      #showTrecaKolona {
 
         position: fixed;
-        
+        top: 30%;
         right: 0;
         height: 30px;
         width: 70px;
