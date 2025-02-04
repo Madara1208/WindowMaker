@@ -16,6 +16,120 @@ function setFullHeight() {
         let selectedRightDiv = null;
       
 
+
+        /*document.getElementById('dimensionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const width = parseInt(document.getElementById('width').value);
+            const height = parseInt(document.getElementById('height').value);
+
+            if (width > 0 && height > 0) {
+
+
+                const windowDiv = document.createElement('div');
+                windowDiv.classList.add('generated-window');
+                windowDiv.style.width = width + 'px';
+                windowDiv.style.height = height + 'px';
+
+                const newBox = document.createElement('div');
+                newBox.classList.add('window_inner_line');
+
+                wingCounter++;
+                windowDiv.id = 'krilo' + wingCounter;
+                idList.push(windowDiv.id);
+                addRemoveListener(windowDiv);
+                windowDiv.addEventListener('click', function () {
+                    selectedDiv = windowDiv; // Postavi ovaj div kao selektovan
+                });
+
+              
+
+                // Postavljanje početne pozicije
+                windowDiv.style.left = ${(output.clientWidth - width) / 2}px;
+                windowDiv.style.top = ${(output.clientHeight - height) / 2}px;
+
+                // Dodavanje dimenzija
+                const widthText = document.createElement('div');
+                widthText.classList.add('dimensions', 'width-dimension');
+                widthText.textContent = ${width} cm;
+
+                const heightText = document.createElement('div');
+                heightText.classList.add('dimensions', 'height-dimension');
+                heightText.textContent = ${height} cm;
+
+                windowDiv.appendChild(widthText);
+                windowDiv.appendChild(heightText);
+                
+
+                // Dodavanje mogućnosti za selekciju
+                windowDiv.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    deselectWindows();
+                    windowDiv.classList.add('selected');
+                    selectedWindow = windowDiv;
+                }); 
+              
+                
+
+                // Dodavanje mogućnosti za pomeranje
+                windowDiv.addEventListener('mousedown', function(e) {
+                    let offsetX = e.clientX - windowDiv.offsetLeft;
+                    let offsetY = e.clientY - windowDiv.offsetTop;
+
+                    function moveAt(event) {
+                        const minX = 0;
+                        const maxX = output.clientWidth - windowDiv.offsetWidth;
+                        const minY = 0;
+                        const maxY = output.clientHeight - windowDiv.offsetHeight;
+
+                        let newX = event.clientX - offsetX;
+                        let newY = event.clientY - offsetY;
+
+                        if (newX < minX) newX = minX;
+                        if (newX > maxX) newX = maxX;
+                        if (newY < minY) newY = minY;
+                        if (newY > maxY) newY = maxY;
+
+                        windowDiv.style.left = ${newX}px;
+                        windowDiv.style.top = ${newY}px;
+                    }
+
+                    function stopMove() {
+                        document.removeEventListener('mousemove', moveAt);
+                        document.removeEventListener('mouseup', stopMove);
+                    }
+
+                    document.addEventListener('mousemove', moveAt);
+                    document.addEventListener('mouseup', stopMove);
+                });
+
+                output.appendChild(windowDiv);
+                windowDiv.appendChild(newBox);
+            }
+        })*/
+            function taca(event) {
+                // Ako korisnik dodirne input, textarea ili select, ne prebacujemo u click
+                if (event.target.tagName === "INPUT" || 
+                    event.target.tagName === "TEXTAREA" || 
+                    event.target.tagName === "SELECT") {
+                    return;
+                }
+            
+                event.preventDefault(); // Sprečava neželjene efekte (npr. skrolovanje)
+            
+                let clickEvent = new MouseEvent("click", {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window
+                });
+            
+                event.target.dispatchEvent(clickEvent);
+            }
+            
+            // Dodaj listener na document
+            document.addEventListener("touchstart", taca, { passive: false });
+            
+
         // Kreiranje novog prozora
         document.getElementById('dimensionForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -1023,58 +1137,30 @@ document.getElementById('open-right').addEventListener('change', function() {
 
 document.getElementById('copyBtn').addEventListener('click', function () {
     setTimeout(() => {
-      const content = document.getElementById('output');
-  
-      html2canvas(content).then(canvas => {
-        const imageData = canvas.toDataURL('image/png'); // Konvertuje u base64
-  
-        // Dohvati trenutne screenshotove iz lokalnog skladišta
-        const screenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
-  
-        // Dodaj novi screenshot u niz
-        screenshots.push({ image: imageData, text: '' }); // Tekst možete dodati kasnije
-  
-        // Ažuriraj lokalno skladište
-        localStorage.setItem('screenshots', JSON.stringify(screenshots));
-  
-        // Prebaci na stranicu za prikaz
-        window.location.href = 'Prikaz.html';
-      });
+        const content = document.getElementById('output');
+
+        html2canvas(content, { scale: window.devicePixelRatio }).then(canvas => {
+            const imageData = canvas.toDataURL('image/png'); // Konvertuje u base64
+
+            try {
+                // Dohvati trenutne screenshotove iz lokalnog skladišta
+                const screenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
+
+                // Dodaj novi screenshot u niz
+                screenshots.push({ image: imageData, text: '' });
+
+                // Ažuriraj lokalno skladište
+                localStorage.setItem('screenshots', JSON.stringify(screenshots));
+
+                // Prebaci na stranicu za prikaz
+                window.location.href = 'Prikaz.html';
+            } catch (e) {
+                alert("Lokalno skladište nije dostupno! Proverite podešavanja pregledača.");
+            }
+        });
     }, 500);
-  });
+});
 
-  document.getElementById('copyBtn').addEventListener('click', () => {
-    // Selektuj sve ciljne div-ove
-    const targetDivs = document.querySelectorAll('.target');
-
-    // Pronađi minimalne i maksimalne granice
-    let top = Infinity;
-    let left = Infinity;
-    let bottom = -Infinity;
-    let right = -Infinity;
-
-    targetDivs.forEach(div => {
-      const rect = div.getBoundingClientRect();
-
-      top = Math.min(top, rect.top);
-      left = Math.min(left, rect.left);
-      bottom = Math.max(bottom, rect.bottom);
-      right = Math.max(right, rect.right);
-    });
-
-    // Kreiraj wrapper div
-    const wrapperDiv = document.createElement('div');
-    wrapperDiv.classList.add('wrapper');
-
-    // Postavi dimenzije i poziciju wrapper-a
-    wrapperDiv.style.top = `${top}px`;
-    wrapperDiv.style.left = `${left}px`;
-    wrapperDiv.style.width = `${right - left}px`;
-    wrapperDiv.style.height = `${bottom - top}px`;
-
-    // Dodaj wrapper div u body
-    document.body.appendChild(wrapperDiv);
-  });
 /*
   (function() {
     var removeSuccess;

@@ -578,7 +578,7 @@
         "prva-kolona"
         "wrapp";
       grid-template-columns: 1fr;
-      grid-template-rows: 10vh 50vh 20vh 20vh;
+      grid-template-rows: 50px 50vh auto auto;
        /* Visina se prilagođava sadržaju */
     }
     
